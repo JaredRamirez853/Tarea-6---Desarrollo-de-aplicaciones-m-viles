@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-/// Foto de la caja de herramientas. Si el archivo todavía no existe
-/// se muestra un aviso visible en lugar de una imagen inventada.
 class ToolboxBanner extends StatelessWidget {
   const ToolboxBanner({super.key});
 
-  static const imagePath = 'assets/images/caja_herramientas.jpg';
+  static const imagePath = 'assets/images/caja_herramientas.png';
 
   @override
   Widget build(BuildContext context) {
