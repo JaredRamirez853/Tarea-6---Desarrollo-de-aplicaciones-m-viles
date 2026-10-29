@@ -9,13 +9,14 @@ class ToolboxBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
-      child: AspectRatio(
-        aspectRatio: 16 / 9,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxHeight: 320),
         child: Image.asset(
           imagePath,
-          fit: BoxFit.cover,
+          width: double.infinity,
+          fit: BoxFit.contain,
           errorBuilder: (context, error, stackTrace) =>
-              const _MissingPhoto(path: imagePath),
+          const _MissingPhoto(path: imagePath),
         ),
       ),
     );
@@ -30,16 +31,20 @@ class _MissingPhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    return ColoredBox(
-      color: scheme.surfaceContainerHighest,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.handyman, size: 64, color: scheme.primary),
-            const SizedBox(height: 8),
-            Text('Agrega tu foto en\n$path', textAlign: TextAlign.center),
-          ],
+    return SizedBox(
+      height: 200,
+      width: double.infinity,
+      child: ColoredBox(
+        color: scheme.surfaceContainerHighest,
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.handyman, size: 64, color: scheme.primary),
+              const SizedBox(height: 8),
+              Text('Agrega tu foto en\n$path', textAlign: TextAlign.center),
+            ],
+          ),
         ),
       ),
     );

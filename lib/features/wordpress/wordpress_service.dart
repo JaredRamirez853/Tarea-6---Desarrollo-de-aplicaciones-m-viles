@@ -1,9 +1,8 @@
 import '../../core/api_client.dart';
 import '../../core/text_utils.dart';
 
-/// Sitio WordPress que consume la app. Cambia esta URL para usar otro.
-/// API: <sitio>/wp-json/wp/v2/posts
-const wordpressSiteUrl = 'https://wordpress.org/news';
+
+const wordpressSiteUrl = 'https://blog.mozilla.org';
 
 class WordpressSite {
   const WordpressSite({required this.name, required this.iconUrl});

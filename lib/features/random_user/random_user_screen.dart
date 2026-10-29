@@ -23,7 +23,11 @@ class RandomUserScreen extends StatefulWidget {
 class _RandomUserScreenState extends State<RandomUserScreen> {
   late Future<RandomPerson> _future = fetchRandomPerson();
 
-  void _reload() => setState(() => _future = fetchRandomPerson());
+  void _reload() {
+    setState(() {
+      _future = fetchRandomPerson();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
